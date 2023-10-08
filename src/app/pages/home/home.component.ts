@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import {MatBottomSheet} from '@angular/material/bottom-sheet'
-import { AuthenticatorComponent } from 'src/app/tools/authenticator/authenticator.component';
+import { AuthenticatorCompState, AuthenticatorComponent } from 'src/app/tools/authenticator/authenticator.component';
+
 
 @Component({
   selector: 'app-home',
@@ -10,11 +11,22 @@ import { AuthenticatorComponent } from 'src/app/tools/authenticator/authenticato
 export class HomeComponent implements OnInit{
 
   constructor(private loginSheet: MatBottomSheet){}
+  //private stateAut :  AuthenticatorComponent 
+  
   ngOnInit(): void{
 
   }
 
   onGetStartedClick(){
-    this.loginSheet.open(AuthenticatorComponent)
+    this.loginSheet.open(AuthenticatorComponent);
+    
+   // this.stateAut.state = AuthenticatorCompState.REGISTER ;
+   
   }
+
+  
+  
 }
+
+
+

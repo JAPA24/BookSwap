@@ -31,5 +31,6 @@
 .nav-bar-items{
     font-size: 1em;
     display: inline-block;
+    cursor: pointer;
     
 }
