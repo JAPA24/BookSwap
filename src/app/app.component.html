@@ -4,8 +4,9 @@
       <div style="font-size: 1.5em;"  class="nav-bar-items">BookSwap</div>
       </div>
       <div id="nav-bar-right">
-        <div mat-flat-button (click)="onLoginClick()" 
+        <div *ngIf="!loggedIn()" (click)="onLoginClick()" 
           class="nav-bar-items">Login</div>
+          <div *ngIf="loggedIn()" (click)="onLogoutClick()" class="nav-bar-items">Logout</div>
       </div>
     </div>
   </div>

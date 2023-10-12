@@ -14,6 +14,7 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet'
 import {MatCardModule} from '@angular/material/card'
 
 import {AuthenticatorComponent} from './tools/authenticator/authenticator.component';
+import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
 
 
 
@@ -22,6 +23,7 @@ import {AuthenticatorComponent} from './tools/authenticator/authenticator.compon
     AppComponent,
     HomeComponent,
     AuthenticatorComponent,
+    EmailVerificationComponent,
     
     
    
