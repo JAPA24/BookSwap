@@ -3,6 +3,7 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { AuthenticatorComponent} from './tools/authenticator/authenticator.component';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { Router } from '@angular/router';
+import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 
 
 @Component({
@@ -14,6 +15,9 @@ export class AppComponent {
 
   title = 'proyectoBookSwap';
   auth = new FirebaseTSAuth();
+  firestore = new FirebaseTSFirestore();
+  userHasProfile = true;
+  userDocument: UserDocument;
 
   constructor(private loginSheet: MatBottomSheet , private router:Router){
 
@@ -31,7 +35,7 @@ export class AppComponent {
 
           },
           whenSignedInAndEmailVerified: user => {
-
+            this.getUserProfile();
           },
           whenChanged: user => {
 
@@ -41,6 +45,20 @@ export class AppComponent {
     )
   }
 
+  getUserProfile(){
+    this.firestore.listenToDocument(
+      {
+        name:"Getting Document",
+        path:["Users",this.auth.getAuth().currentUser.uid],
+        onUpdate: (result) => {
+          this.userDocument = <UserDocument>result.data();
+
+          this.userHasProfile = result.exists;
+        }
+
+      }
+    );
+  }
 
   onLogoutClick(){
     this.auth.signOut();
@@ -56,4 +74,9 @@ export class AppComponent {
   }
 
   
+}
+
+export interface userDocument{
+  publicName: string;
+  description: string;
 }

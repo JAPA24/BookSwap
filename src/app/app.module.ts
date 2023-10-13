@@ -15,6 +15,7 @@ import {MatCardModule} from '@angular/material/card'
 
 import {AuthenticatorComponent} from './tools/authenticator/authenticator.component';
 import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
+import { ProfileComponent } from './tools/profile/profile.component';
 
 
 
@@ -24,6 +25,7 @@ import { EmailVerificationComponent } from './pages/email-verification/email-ver
     HomeComponent,
     AuthenticatorComponent,
     EmailVerificationComponent,
+    ProfileComponent,
     
     
    
