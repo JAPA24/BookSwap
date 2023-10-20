@@ -3,7 +3,7 @@
     top: 0;
     right: 0;
     height: 100vh;
-    background-color: rgb (29,29,29);
+    background-color: rgb(29,29,29);
     z-index: 9;
     transition-duration: .5s;
     overflow: hidden;
@@ -37,7 +37,7 @@ input, textarea{
     margin-bottom: .5em;
     resize: none;
     outline: none;
-    border: 1px solid grey;
+    border: 1px solid gray;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
 }

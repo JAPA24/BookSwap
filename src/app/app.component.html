@@ -18,4 +18,4 @@
 </div>
 
 <router-outlet></router-outlet>
-<app-profile [show]="loggedIn() || !userHasProfile"></app-profile> 
+<app-profile [show]="loggedIn() && !userHasProfile"></app-profile> 

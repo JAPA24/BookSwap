@@ -7,8 +7,9 @@ import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
-  @Input() show: boolean = false;
+export class ProfileComponent  {
+  @Input()
+  show: boolean = true;
 
   firestore: FirebaseTSFirestore;
   auth: FirebaseTSAuth;
@@ -18,9 +19,7 @@ export class ProfileComponent implements OnInit {
     
   }
 
-  ngOnInit(): void {
-
-  }
+  
 
   onContinueClick(
     nameInput:HTMLInputElement, 

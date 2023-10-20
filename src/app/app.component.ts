@@ -47,7 +47,7 @@ export class AppComponent {
 
   getUserProfile(){
 
-    const user = this.auth.getAuth()?.currentUser; // Use the optional chaining operator
+    const user = this.auth.getAuth().currentUser; // Use the optional chaining operator
 
     if (user) {
       
@@ -66,11 +66,13 @@ export class AppComponent {
   }
 }
   onLogoutClick(){
+    location.reload();
     this.auth.signOut();
   }
 
   loggedIn(){
     return this.auth.isSignedIn();
+    
   }
 
   onLoginClick(){
