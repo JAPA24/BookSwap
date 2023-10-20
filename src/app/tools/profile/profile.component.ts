@@ -8,13 +8,14 @@ import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  @Input() show: boolean;
+  @Input() show: boolean = false;
 
   firestore: FirebaseTSFirestore;
   auth: FirebaseTSAuth;
   constructor() {
     this.firestore = new FirebaseTSFirestore();
     this.auth = new FirebaseTSAuth();
+    
   }
 
   ngOnInit(): void {
@@ -25,13 +26,20 @@ export class ProfileComponent implements OnInit {
     nameInput:HTMLInputElement, 
     descriptionInput: HTMLTextAreaElement
   ){
-    let name = nameInput.value;
-    let description = descriptionInput.value;
-    this.firestore.create(
+
+    const authObject = this.auth.getAuth();
+    if (this.auth) {
+    
+    if (authObject.currentUser) {
+      const uid = authObject.currentUser.uid;
+      let name = nameInput.value;
+      let description = descriptionInput.value;
+    
+      this.firestore.create(
       {
-        path: ["User", this.auth.getAuth().currentUser.uid],
+        path: ["Users", uid],
         data: {
-          publicName: name;
+          publicName: name,
           description: description
         },
         onComplete: (docId) => {
@@ -43,5 +51,8 @@ export class ProfileComponent implements OnInit {
       }
     )
   }
+
+}
+}
 
 }

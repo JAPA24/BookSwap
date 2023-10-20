@@ -17,10 +17,10 @@ export class AppComponent {
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   userHasProfile = true;
-  userDocument: UserDocument;
+  userDocument: UserDocument = { publicName: '', description: '' };
 
   constructor(private loginSheet: MatBottomSheet , private router:Router){
-
+    
     this.auth.listenToSignInStateChanges(
       user => {
         this.auth.checkSignInState({
@@ -46,20 +46,25 @@ export class AppComponent {
   }
 
   getUserProfile(){
+
+    const user = this.auth.getAuth()?.currentUser; // Use the optional chaining operator
+
+    if (user) {
+      
     this.firestore.listenToDocument(
       {
         name:"Getting Document",
-        path:["Users",this.auth.getAuth().currentUser.uid],
+        path:["Users",user.uid],
         onUpdate: (result) => {
           this.userDocument = <UserDocument>result.data();
-
+          
           this.userHasProfile = result.exists;
         }
 
       }
     );
   }
-
+}
   onLogoutClick(){
     this.auth.signOut();
   }
@@ -76,7 +81,7 @@ export class AppComponent {
   
 }
 
-export interface userDocument{
+export interface UserDocument{
   publicName: string;
   description: string;
 }
