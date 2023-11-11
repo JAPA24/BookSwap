@@ -21,7 +21,7 @@
    box-sizing: border-box;
    -moz-box-sizing: border-box;
    -webkit-box-sizing:border-box;
-   color: white;
+   color: rgb(216, 158, 216);
 }
 
 #nav-bar-right{
@@ -33,4 +33,12 @@
     display: inline-block;
     cursor: pointer;
     margin-right: 1em;
+}
+
+.Login:hover{
+    background-color: rgb(131, 70, 131);
+    color: rgb(255, 255, 255);
+    border-radius: 10rem;
+    border-color: rgb(216, 158, 216);
+    border-width: medium;
 }
