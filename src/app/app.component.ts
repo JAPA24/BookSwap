@@ -59,6 +59,9 @@ export class AppComponent {
           this.userDocument = <UserDocument>result.data();
           
           this.userHasProfile = result.exists;
+          if(this.userHasProfile){
+            this.router.navigate(["postfeed"]);
+          }
         }
 
       }
