@@ -3,8 +3,10 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 5em;
+    height:auto;
     z-index:10;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
 #nav-bar-content {
@@ -33,6 +35,7 @@
     display: inline-block;
     cursor: pointer;
     margin-right: 1em;
+    font-weight: 500;
 }
 
 .Login:hover{
@@ -41,4 +44,8 @@
     border-radius: 10rem;
     border-color: rgb(216, 158, 216);
     border-width: medium;
+}
+
+.logo{
+    border-radius: 50%;
 }

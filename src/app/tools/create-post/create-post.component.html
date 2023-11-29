@@ -3,7 +3,7 @@
         <mat-card-title>Crear Publicación</mat-card-title>
     </mat-card-header>
     <div>
-        <textarea placeholder="Escribe una Descripción..."></textarea>
+        <textarea #commentInput placeholder="Escribe una Descripción..."></textarea>
     </div>
 
     <div *ngIf="selectedImageFile" id="post-preview">
@@ -20,6 +20,6 @@
             </label>
 
         </button>
-        <button mat-flat-button color="warn">Publicar</button>
+        <button (click)="onPostClick(commentInput)" mat-flat-button color="warn">Publicar</button>
     </mat-card-actions>
 </mat-card>

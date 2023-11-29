@@ -1,5 +1,15 @@
+.contenedor{
+    background: rgb(216,158,216);
+background: linear-gradient(0deg, rgba(216,158,216,1) 0%, rgba(247,236,247,1) 79%);
+}
 #post-button{
     position: fixed;
     bottom: 2em;
     right: 2em;
+}
+#post-feed{
+    max-width: 500px;
+    margin-top: 5em;
+    margin-left: auto;
+    margin-right: auto;
 }

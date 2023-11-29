@@ -1,14 +1,14 @@
 <div id="nav-bar">
   <div id="nav-bar-content">
     <div id="nav-bar-left">
-      <div style="font-size: 1.5em" class="nav-bar-items"><img src="../assets/Book swap.png" alt="logo" width="150px" height="150px"></div>
+      <div style="font-size: 1.5em" class="nav-bar-items"><img src="../assets/Book swap.png" class="logo" alt="logo" width="80px" height="70px"></div>
     </div>
     <div id="nav-bar-right">
       <div *ngIf="!loggedIn()" (click)="onLoginClick()" class="nav-bar-items Login">
         Login
       </div>
       <div *ngIf="loggedIn() && userHasProfile" class="nav-bar-items">
-        Hola, {{ userDocument.publicName }}
+        Hola, {{ getUserName() }}
       </div>
       <div *ngIf="loggedIn()" (click)="onLogoutClick()" class="nav-bar-items">
         Logout
