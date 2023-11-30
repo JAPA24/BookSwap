@@ -22,6 +22,8 @@ import { PostFeedComponent } from './pages/post-feed/post-feed.component';
 import { CreatePostComponent } from './tools/create-post/create-post.component';
 import { PostComponent } from './tools/post/post.component';
 import { ReplyComponent } from './tools/reply/reply.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -41,6 +43,8 @@ import { ReplyComponent } from './tools/reply/reply.component';
     CreatePostComponent,
     PostComponent,
     ReplyComponent,
+    UserProfileComponent,
+    
     
     
     
@@ -57,11 +61,12 @@ import { ReplyComponent } from './tools/reply/reply.component';
     MatCardModule,
     MatDialogModule,
     MatIconModule,
+ 
     
     
    
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

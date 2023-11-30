@@ -1,0 +1,22 @@
+<div *ngIf="userData">
+  <h2>{{ userData.publicName }}'s Profile</h2>
+  <p>Email: {{ userData.email }}</p>
+  <p> {{ userData.description}}</p>
+</div>
+
+<div *ngIf="userPosts.length > 0">
+  <h3>Libros publicados de {{userData.publicName }}</h3>
+  <div *ngFor="let post of userPosts">
+
+    <mat-card class="card">
+      <mat-card-header class="header-card">
+          <mat-card-subtitle class="subtitle"> {{ formatTimestamp(post.timestamp) }} </mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{ post.imageUrl }}">
+      <mat-card-content class="comentario">
+         {{ post.comment }} 
+      </mat-card-content>
+  </mat-card>
+  
+  </div>
+</div>

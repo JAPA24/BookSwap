@@ -17,7 +17,12 @@ export class AppComponent {
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   userHasProfile = true;
-  private static userDocument: UserDocument = { publicName: '', description: '' ,  userId: ''};
+  static userDocument: UserDocument = {
+    publicName: '', description: '', userId: '',
+    creatorId: undefined
+  };
+ 
+ 
 
   constructor(private loginSheet: MatBottomSheet , private router:Router){
     
@@ -29,7 +34,7 @@ export class AppComponent {
            this.router.navigate(["postfeed"]);
           },
           whenSignedOut: user =>{
-            AppComponent.userDocument = { publicName: '', description: '', userId: '' };
+            AppComponent.userDocument = { publicName: '', description: '', userId: '' ,creatorId:'' };
             this.router.navigate(["**"]);
             // alert("Salió")
 
@@ -105,6 +110,8 @@ export class AppComponent {
 }
 
 export interface UserDocument{
+creatorId: any|string;
+  
   publicName: string;
   description: string;
   userId: string;
