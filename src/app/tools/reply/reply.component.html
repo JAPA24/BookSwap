@@ -1,4 +1,4 @@
-<p>Comentar</p>
+<p class="title">Comentar</p>
 <div id="reply-box">
     <div *ngFor="let comment of comments"
      [ngClass]="{'comment-container': true,'creator-comment-container': isCommentCreator(comment)}">
@@ -9,7 +9,7 @@
     </div>
 </div>
 <div id="replay-action-bar">
-    <button mat-flat-button class="btn-send"
+    <button mat-flat-button color="primary"
     (click)="onSendClick(commenInput)"> <mat-icon>send</mat-icon></button>
     <input placeholder="Comenta..." #commenInput>
 </div>

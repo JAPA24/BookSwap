@@ -1,10 +1,14 @@
 <div class="container">
+ 
   <div *ngIf="userData" class="description">
+    <button mat-button onclick="window.history.back()" class="back-button">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
     <h2 class="color"> Perfíl de {{ userData.publicName }}</h2>
     <p class="color"><span class="selector">Email:</span> {{ userData.publicemail }}</p>
     <p class="color"><span class="selector">Sobre mí: </span>  {{ userData.description}} </p>
   </div>
-
+  
   <div *ngIf="userPosts.length > 0">
     <h3 class="center-title color">Libros publicados por {{userData.publicName }}</h3>
     <div class="post-feed">

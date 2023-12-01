@@ -28,9 +28,7 @@ box-sizing: border-box;
 -webkit-box-sizing: border-box;
 }
 
-.btn-send{
-    background-color: blueviolet;
-}
+
 .comment-container{
     display: flex;;
 }
@@ -54,4 +52,9 @@ box-sizing: border-box;
 .creator-comment{
     background-color: #d89ed8;
     color: white;
+}
+
+
+.title{
+    padding-left: 15px;
 }
