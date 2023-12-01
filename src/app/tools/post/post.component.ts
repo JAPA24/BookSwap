@@ -5,7 +5,7 @@ import {UserDocument} from 'src/app/app.component'
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ReplyComponent } from 'src/app/tools/reply/reply.component';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 
 @Component({
   selector: 'app-post',

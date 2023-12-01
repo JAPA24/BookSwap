@@ -23,7 +23,8 @@ export class ProfileComponent  {
 
   onContinueClick(
     nameInput:HTMLInputElement, 
-    descriptionInput: HTMLTextAreaElement
+    descriptionInput: HTMLTextAreaElement,
+    emailInput: HTMLInputElement
   ){
 
     const authObject = this.auth.getAuth();
@@ -33,18 +34,21 @@ export class ProfileComponent  {
       const uid = authObject.currentUser.uid;
       let name = nameInput.value;
       let description = descriptionInput.value;
+      let email = emailInput.value;
     
       this.firestore.create(
       {
         path: ["Users", uid],
         data: {
           publicName: name,
-          description: description
+          description: description,
+          publicemail: email
         },
         onComplete: (docId) => {
-          alert("Perfil creado con exito");
+          alert("Perfil creado con éxito");
           nameInput.value ="";
           descriptionInput.value = "";
+          emailInput.value = "";
         },
         onFail: (err) => {}
       }
