@@ -11,15 +11,15 @@
     </div>
 
     <mat-card-actions align="end">
-        <button mat button color="warn">
+        <button mat button color="warn"> 
             <label for="photo-upload">
                 <input 
                 #photoSelector (change) = "onPhotoSelected(photoSelector)"
                 id="photo-upload" type="file" accept="image/*"/>
-                <mat-icon>insert_photo</mat-icon>
+                <mat-icon>insert_photo</mat-icon> 
             </label>
-
         </button>
+        <span style="margin: 5px;"></span>
         <button (click)="onPostClick(commentInput)" mat-flat-button color="primary">Publicar</button>
     </mat-card-actions>
 </mat-card>

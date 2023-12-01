@@ -21,6 +21,8 @@ export class PostComponent implements OnInit {
   creatorName: string | undefined;
   creatorDescription: string | undefined;
   firestore = new FirebaseTSFirestore();
+  likesCount: number = 0;
+  isLiked: boolean = false;
  
   constructor(private dialog: MatDialog) {
    
@@ -30,13 +32,45 @@ export class PostComponent implements OnInit {
     this.getCreatorInfo();
    // console.log('User:', this.user);
    
+    this.loadLikes();
+   
   }
 
   onReplyClick() {
     this.dialog.open(ReplyComponent, { data: this.postData?.postId });
   }
 
+  onLikeClick() {
+    if (!this.isLiked) {
+      // Si el usuario no ha dado like, incrementa el recuento y marca como liked
+      this.likesCount++;
+      this.isLiked = true;
+    } else {
+      // Si el usuario ya ha dado like, decrementa el recuento y marca como no liked
+      this.likesCount--;
+      this.isLiked = false;
+    }
 
+    // Actualiza la información en Firebase
+    this.firestore.update({
+      path: ["Likes", this.postData!.postId],
+      data: { count: this.likesCount, [this.user.userId]: this.isLiked },
+    });
+  }
+
+  loadLikes() {
+    this.firestore.getDocument({
+      path: ["Likes", this.postData!.postId],
+      onComplete: (result) => {
+        const likesData = result.data();
+
+        if (likesData) {
+          this.likesCount = likesData['count'] || 0;
+          this.isLiked = likesData[this.user.userId] || false;
+        }
+      },
+    });
+  }
 
   getCreatorInfo() {
     this.firestore.getDocument({
