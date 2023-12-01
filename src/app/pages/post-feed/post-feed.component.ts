@@ -30,6 +30,7 @@ export class PostFeedComponent implements OnInit {
 
   onCreatePostClick(){
     this.dialog.open(CreatePostComponent);
+     
   }
   getUserProfile() {
     const user = this.auth.getAuth()?.currentUser; // Usar el operador de encadenamiento opcional (?)
@@ -76,6 +77,7 @@ export class PostFeedComponent implements OnInit {
         }
       }
     );
+   
   }
 }
 

@@ -7,6 +7,7 @@
    
     <mat-card-actions>
         <mat-icon (click)="onReplyClick()" class="action-item" color="primary">chat_bubble_outline</mat-icon>
-        <mat-icon class="action-item" color="primary">favorite_border</mat-icon>
-    </mat-card-actions>
+        <mat-icon (click)="onLikeClick()" class="action-item" color="{{ isLiked ? 'accent' : 'primary' }}">favorite</mat-icon>
+        <span>{{ likesCount }}</span>
+      </mat-card-actions>
 </mat-card>

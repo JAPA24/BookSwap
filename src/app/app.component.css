@@ -39,10 +39,10 @@
 }
 
 .Login:hover{
-    background-color: rgb(165, 110, 165);
-    color: rgb(255, 255, 255);
+   
+    color: rgb(234, 0, 255);
     border-radius: 10rem;
-    border-color: rgb(216, 158, 216);
+
     border-width: medium;
 }
 

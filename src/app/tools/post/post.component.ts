@@ -20,9 +20,10 @@ export class PostComponent implements OnInit {
   };
   creatorName: string | undefined;
   creatorDescription: string | undefined;
-  firestore = new FirebaseTSFirestore();
   likesCount: number = 0;
   isLiked: boolean = false;
+  firestore = new FirebaseTSFirestore();
+ 
  
   constructor(private dialog: MatDialog) {
    
@@ -31,8 +32,8 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     this.getCreatorInfo();
    // console.log('User:', this.user);
+   this.loadLikes();
    
-    this.loadLikes();
    
   }
 
@@ -45,17 +46,23 @@ export class PostComponent implements OnInit {
       // Si el usuario no ha dado like, incrementa el recuento y marca como liked
       this.likesCount++;
       this.isLiked = true;
+
+      // Actualiza la información en Firebase
+      this.firestore.update({
+        path: ["Likes", this.postData!.postId],
+        data: { count: this.likesCount, [this.user.userId]: true },
+      });
     } else {
       // Si el usuario ya ha dado like, decrementa el recuento y marca como no liked
       this.likesCount--;
       this.isLiked = false;
-    }
 
-    // Actualiza la información en Firebase
-    this.firestore.update({
-      path: ["Likes", this.postData!.postId],
-      data: { count: this.likesCount, [this.user.userId]: this.isLiked },
-    });
+      // Actualiza la información en Firebase
+      this.firestore.update({
+        path: ["Likes", this.postData!.postId],
+        data: { count: this.likesCount, [this.user.userId]: false },
+      });
+    }
   }
 
   loadLikes() {
@@ -67,11 +74,19 @@ export class PostComponent implements OnInit {
         if (likesData) {
           this.likesCount = likesData['count'] || 0;
           this.isLiked = likesData[this.user.userId] || false;
+        } else {
+          // Si no hay datos de likes, crea la entrada en la colección "Likes"
+          this.firestore.create({
+            path: ["Likes", this.postData!.postId],
+            data: { count: 0 },
+          });
         }
       },
     });
   }
 
+
+  
   getCreatorInfo() {
     this.firestore.getDocument({
       path: ["Users", this.postData!.creatorId],
