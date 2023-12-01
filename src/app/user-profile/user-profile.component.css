@@ -4,7 +4,7 @@
 
 .container{
     padding: 15px;
-    background-image: url(/assets/fondo1.jpg);
+    background-image: url(/assets/fondo4.jpeg);
     background-size: cover; /* Ajusta el tamaño para cubrir toda la pantalla */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; 
@@ -23,7 +23,7 @@
     margin-bottom: 10px; /* Espacio entre las filas de tarjetas */
     margin: 10px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-    background-color:rgba(178, 176, 176, 0.863);
+    background-color:rgba(255, 255, 255, 0.493);
 }
   .subtitle{
     margin-bottom: 10px;
@@ -38,7 +38,7 @@
     text-align: center;
     margin-top: 30px;
     margin-bottom: 0;
-    font-size: 90px;
+    font-size: 60px;
   }
 
   .color{
