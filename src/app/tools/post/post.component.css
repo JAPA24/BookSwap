@@ -4,6 +4,7 @@
 }
 .title-card{
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .subtittle{
@@ -23,3 +24,9 @@ margin-bottom: 2px;
 .comentario{
     margin-top: 10px;
 }
+
+a{
+    text-decoration: none; 
+    color: black;
+}
+    

@@ -8,7 +8,7 @@
             <input #loginPassword placeholder="Contraseña" type="password">
             <button 
                 (click)= "onLogin(loginEmail,loginPassword)"
-            mat-flat-button color="warn">Iniciar</button>
+            mat-flat-button color="primary">Iniciar</button>
         </div>
 
         <div *ngIf="isRegisterState()">
@@ -20,12 +20,12 @@
                 registerPassword,
                 registerConfirmPassword
 
-            )" mat-flat-button color="warn">Crear</button>
+            )" mat-flat-button color="primary">Crear</button>
         </div>
 
         <div *ngIf="isForgotPasswordState()">
             <input #resetEmail placeholder="Email"/>
-            <button (click)="onResetClick(resetEmail)" mat-flat-button color="warn">Cambiar</button>
+            <button (click)="onResetClick(resetEmail)" mat-flat-button color="primary">Cambiar</button>
         </div>
 
 
